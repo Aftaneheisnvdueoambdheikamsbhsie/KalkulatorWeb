@@ -1,21 +1,27 @@
 body {
     font-family: Arial, sans-serif;
-    background-image: url('libs/bgjpeg.webp'); /* Path menuju folder libs */
+    background-image: url('libs/bgjpeg.webp'); /* Path ke background baru */
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     color: white;
     text-align: center;
-    padding: 20px;
+    margin: 0;
+    padding: 0;
 }
 
 .container {
-    background-color: rgba(0, 0, 0, 0.7); /* Hanya sebagai warna dasar, tanpa gambar */
+    background-color: rgba(0, 0, 0, 0.7); /* Transparansi untuk kontras */
     padding: 20px;
     border-radius: 10px;
-    display: inline-block;
-    width: 60%;
-    margin: auto;
+    width: 80%;
+    max-width: 600px;
+    margin: 40px auto;
+}
+
+img {
+    max-width: 100px;
+    margin-bottom: 20px;
 }
 
 h1 {
@@ -27,7 +33,6 @@ label {
     display: block;
     margin: 10px 0 5px;
     font-size: 1.1em;
-    text-align: left;
 }
 
 select, input, button {
@@ -36,8 +41,13 @@ select, input, button {
     margin: 10px auto;
     padding: 10px;
     border-radius: 5px;
-    border: none;
+    border: 1px solid #ccc;
     font-size: 1em;
+}
+
+select:focus, input:focus {
+    outline: none;
+    border-color: #f9d342;
 }
 
 button {
@@ -45,37 +55,28 @@ button {
     color: black;
     cursor: pointer;
     font-weight: bold;
+    margin-top: 20px;
 }
 
 button:hover {
     background-color: #e0c02d;
 }
 
-img {
-    max-width: 120px;
-    display: block;
-    margin: 0 auto 20px;
-}
-
-/* Label untuk hasil */
 #resultLabel {
-    display: block;
     margin-top: 20px;
     font-size: 1.2em;
+    color: #4caf50; /* Hijau untuk hasil */
     font-weight: bold;
-    color: #4caf50; /* Warna hijau untuk hasil */
     padding: 10px;
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 5px;
-    text-align: center;
 }
 
-/* Responsif */
 @media (max-width: 768px) {
     .container {
         width: 90%;
     }
-    
+
     select, input, button {
         width: 100%;
     }
