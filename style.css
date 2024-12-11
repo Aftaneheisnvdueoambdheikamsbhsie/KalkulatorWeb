@@ -1,0 +1,74 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('libs/background.jpg'); /* Path menuju folder libs */
+    background-size: cover;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.container {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    display: inline-block;
+    width: 60%; /* Lebar container sedikit lebih besar */
+    margin: auto;
+}
+
+h1 {
+    color: #f9d342;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-size: 1.1em;
+    text-align: left;
+}
+
+select, input, button {
+    width: 90%;
+    max-width: 300px;
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1em;
+}
+
+button {
+    background-color: #f9d342;
+    color: black;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #e0c02d;
+}
+
+img {
+    max-width: 120px;
+    display: block;
+    margin: 0 auto 20px;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #4caf50; /* Warna hijau untuk hasil */
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+    .container {
+        width: 90%; /* Lebar container di layar kecil */
+    }
+    
+    select, input, button {
+        width: 100%;
+    }
+}
