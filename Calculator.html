@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volume Bangun Ruang</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <img src="libs/logo.png" alt="Logo">
+        <h1>Volume Bangun Ruang</h1>
+
+        <!-- Pilihan Kategori -->
+        <form id="volumeForm">
+            <label for="kategoriRuang">Pilih Kategori Bangun Ruang:</label>
+            <select id="kategoriRuang" onchange="showKategori()">
+                <option value="">-- Pilih Kategori --</option>
+                <option value="sisiDatar">Bangun Ruang Sisi Datar</option>
+                <option value="sisiLengkung">Bangun Ruang Sisi Lengkung</option>
+            </select>
+
+            <!-- Pilihan Bangun Ruang -->
+            <div id="pilihanBangunRuang" style="display: none;">
+                <label for="bangunRuang">Pilih Bangun Ruang:</label>
+                <select id="bangunRuang" onchange="showInputs()">
+                    <!-- Opsi akan diisi dinamis -->
+                </select>
+            </div>
+
+            <!-- Input Dinamis -->
+            <div id="inputFields"></div>
+
+            <button type="button" onclick="calculateVolume()" style="display: none;" id="hitungButton">Hitung Volume</button>
+        </form>
+
+        <p id="result"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
