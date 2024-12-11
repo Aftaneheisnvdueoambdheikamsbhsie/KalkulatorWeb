@@ -60,7 +60,7 @@ function showInputs() {
 
 function calculateVolume() {
     const bangunRuang = document.getElementById("bangunRuang").value;
-    const result = document.getElementById("result");
+    const resultLabel = document.getElementById("resultLabel");
     let volume = 0;
 
     if (bangunRuang === "balok" || bangunRuang === "kubus") {
@@ -85,6 +85,10 @@ function calculateVolume() {
         const radius = parseFloat(document.getElementById("radius").value);
         volume = (4 / 3) * Math.PI * Math.pow(radius, 3);
     }
+
+    // Tampilkan hasil pada label
+    resultLabel.textContent = `Volume ${bangunRuang} adalah ${volume.toFixed(2)} m³.`;
+}
 
     result.textContent = `Volume ${bangunRuang} adalah ${volume.toFixed(2)} m³.`;
 }
