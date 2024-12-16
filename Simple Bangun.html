@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volume Bangun Ruang</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('libs/bgjpeg.webp');
+            background-size: cover;
+            background-attachment: fixed;
+            color: white;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            margin: 50px auto;
+            border-radius: 10px;
+            max-width: 400px;
+        }
+
+        h1 {
+            color: #f9d342;
+        }
+
+        select, input, button {
+            display: block;
+            width: 90%;
+            margin: 10px auto;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background-color: #f9d342;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #e0c02d;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #4caf50;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Volume Bangun Ruang</h1>
+
+        <!-- Pilih Bangun Ruang -->
+        <label for="bangunRuang">Pilih Bangun Ruang:</label>
+        <select id="bangunRuang" onchange="showInputs()">
+            <option value="">-- Pilih --</option>
+            <option value="kubus">Kubus</option>
+            <option value="balok">Balok</option>
+            <option value="tabung">Tabung</option>
+            <option value="bola">Bola</option>
+        </select>
+
+        <!-- Input Dinamis -->
+        <div id="inputFields"></div>
+
+        <!-- Tombol Hitung -->
+        <button onclick="calculateVolume()">Hitung Volume</button>
+
+        <!-- Hasil -->
+        <p id="result">Hasil akan muncul di sini</p>
+    </div>
+
+    <script>
+        function showInputs() {
+            const shape = document.getElementById("bangunRuang").value;
+            const inputFields = document.getElementById("inputFields");
+            inputFields.innerHTML = ""; // Reset input sebelumnya
+
+            if (shape === "kubus") {
+                inputFields.innerHTML = `
+                    <label for="sisi">Sisi:</label>
+                    <input type="number" id="sisi" placeholder="Masukkan sisi">
+                `;
+            } else if (shape === "balok") {
+                inputFields.innerHTML = `
+                    <label for="panjang">Panjang:</label>
+                    <input type="number" id="panjang" placeholder="Masukkan panjang">
+                    <label for="lebar">Lebar:</label>
+                    <input type="number" id="lebar" placeholder="Masukkan lebar">
+                    <label for="tinggi">Tinggi:</label>
+                    <input type="number" id="tinggi" placeholder="Masukkan tinggi">
+                `;
+            } else if (shape === "tabung") {
+                inputFields.innerHTML = `
+                    <label for="jariJari">Jari-Jari:</label>
+                    <input type="number" id="jariJari" placeholder="Masukkan jari-jari">
+                    <label for="tinggi">Tinggi:</label>
+                    <input type="number" id="tinggi" placeholder="Masukkan tinggi">
+                `;
+            } else if (shape === "bola") {
+                inputFields.innerHTML = `
+                    <label for="jariJariBola">Jari-Jari:</label>
+                    <input type="number" id="jariJariBola" placeholder="Masukkan jari-jari">
+                `;
+            }
+        }
+
+        function calculateVolume() {
+            const shape = document.getElementById("bangunRuang").value;
+            let hasil = 0;
+
+            if (shape === "kubus") {
+                const sisi = parseFloat(document.getElementById("sisi").value);
+                hasil = Math.pow(sisi, 3);
+            } else if (shape === "balok") {
+                const p = parseFloat(document.getElementById("panjang").value);
+                const l = parseFloat(document.getElementById("lebar").value);
+                const t = parseFloat(document.getElementById("tinggi").value);
+                hasil = p * l * t;
+            } else if (shape === "tabung") {
+                const r = parseFloat(document.getElementById("jariJari").value);
+                const t = parseFloat(document.getElementById("tinggi").value);
+                hasil = Math.PI * Math.pow(r, 2) * t;
+            } else if (shape === "bola") {
+                const r = parseFloat(document.getElementById("jariJariBola").value);
+                hasil = (4 / 3) * Math.PI * Math.pow(r, 3);
+            }
+
+            document.getElementById("result").textContent = `Hasil: ${hasil.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
